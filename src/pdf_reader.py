@@ -9,6 +9,10 @@ def extract_text_from_pdf(pdf_path: str) -> list[dict]:
 
     file_path = Path(pdf_path)
 
+    #Check that the file exists first
+    if not file_path.exists():
+        raise FileNotFoundError(f"PDF not found {pdf_path}")
+
     #check if the file is pdf
     if file_path.suffix.lower() != ".pdf":
         raise ValueError("The file must be a PDF.")
