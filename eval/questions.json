@@ -1,0 +1,66 @@
+[
+  {
+    "question": "What is machine learning?",
+    "keywords": ["subset of AI", "Arthur Samuel"]
+  },
+  {
+    "question": "Who coined the term machine learning?",
+    "keywords": ["Arthur Samuel", "1959"]
+  },
+  {
+    "question": "What is supervised learning?",
+    "keywords": ["supervised machine learning assumes", "input data and the corresponding output data"]
+  },
+  {
+    "question": "What is unsupervised learning?",
+    "keywords": ["unannotated data", "clustering and association"]
+  },
+  {
+    "question": "What is regression in supervised learning?",
+    "keywords": ["predicts continuous values", "forecast the medical costs"]
+  },
+  {
+    "question": "What are the two approaches to improving AI performance?",
+    "keywords": ["working on the data itself", "without changing the amount of data"]
+  },
+  {
+    "question": "What is binary classification?",
+    "keywords": ["assign one of two possible classes"]
+  },
+  {
+    "question": "What is model architecture?",
+    "keywords": ["describes how the data is processed"]
+  },
+  {
+    "question": "Does the article cover FDA-approved AI solutions?",
+    "keywords": ["FDA-approved AI solutions"]
+  },
+  {
+    "question": "What are the challenges of few-shot learning?",
+    "keywords": ["scarcity of labelled examples", "support set"]
+  },
+  {
+    "question": "What are the data privacy and security risks of AI in healthcare?",
+    "keywords": ["data breaches", "unauthorised access"]
+  },
+  {
+    "question": "Why are deep neural networks hard to interpret?",
+    "keywords": ["black boxes", "lack interpretability"]
+  },
+  {
+    "question": "What is the risk of overreliance on machine learning in clinical care?",
+    "keywords": ["overreliance", "neglect of clinical expertise"]
+  },
+  {
+    "question": "What are the limitations of machine learning methods?",
+    "keywords": ["negative sides and limitations", "dependency on large amounts of labelled data"]
+  },
+  {
+    "question": "What are the disadvantages and drawbacks of using machine learning in medicine?",
+    "keywords": ["negative sides and limitations", "dependency on large amounts of labelled data"]
+  },
+  {
+    "question": "what is the limitation?",
+    "keywords": ["negative sides and limitations", "dependency on large amounts of labelled data"]
+  }
+]
