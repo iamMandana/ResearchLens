@@ -3,10 +3,12 @@ from sentence_transformers import SentenceTransformer
 from src.pdf_reader import extract_text_from_pdf
 from src.text_chunker import split_into_chunks
 from src.vector_store import file_hash, load_or_build_embeddings, search_index
+from src.rag import answer_question
 
 CHUNK_SIZE = 200
 OVERLAP = 40
 MODEL_NAME = "sentence-transformers/all-MiniLM-L6-v2"
+RAG_TOP_K = 5 #chunks sent to the llm 
 
 def main():
     pdf_path = input("Enter the path to your research PDF: ")
@@ -45,18 +47,26 @@ def main():
             if not query.strip():
                 print("Please type a question.")
                 continue
+            
+            print("\nThinking... (a local model can take a minute)")
 
-            results = search_index(query, embeddings, chunks, model, top_k=3)
+            try:
+                result = answer_question(
+                    query, embeddings, chunks, model, top_k=RAG_TOP_K
+                )
+            except RuntimeError as error:
+                #Ollama not running, report it, white keep the app alive
+                print(f"Error: {error}")
+                continue
 
             # Step 6: Display the results
-            print("\nMost relevant research sections:")
-
-            for result in results:
+            print(f"Answer:\n{result['answer']}")
+            print("\nSources:")
+            for source in result["sources"]:
                 print(
-                    f"\nPage {result['page_number']} "
-                    f"| Similarity: {result['similarity']:.3f}"
+                    f"  Page {source['page_number']} "
+                    f"(similarity {source['similarity']:.3f})"
                 )
-                print(result["text"])
 
     except (FileNotFoundError, ValueError) as error:
         print(f"Error: {error}")
